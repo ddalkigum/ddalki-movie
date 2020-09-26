@@ -8,6 +8,7 @@ black = "*"
 flake8 = "*"
 django-seed = "*"
 pillow = "*"
+awsebcli = "*"
 
 [packages]
 Django = "*"

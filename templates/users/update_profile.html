@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+
+{% block page_title %}
+  Update Profile
+{% endblock page_title %}
+
+{% block content %}
+
+    <div>
+      {% include 'mixins/form.html' with form=form cta="Update Profile" %}
+    </div>
+    <div>
+        <a href="{% url 'users:password' %}">Change Password</a>
+    </div>
+{% endblock content %}

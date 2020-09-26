@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+  {{person.name}}
+{% endblock page_title %}
+
+{% block content %}
+
+<div class="flex flex-col items-center bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+<h2 class="font-bold mb-2">{{person.name}}</h2>
+<div class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">{{person.kind}}</div>
+<a class="bg-blue-400 hover:bg-blue-600 text-white font-bold mt-4 py-2 px-4 rounded" href="{% url 'people:update' person.pk %}">Edit Person</a>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+  Home
+{% endblock page_title %}
+
+{% block content %}
+<div class="my-8 px-5">
+  <div class="flex items-center">
+	<h2 class="text-3xl text-blue-600">Movies</h2> 
+  <a class="bg-blue-400 hover:bg-blue-600 text-white font-bold ml-2 py-2 px-4 rounded" href="{% url 'movies:create' %}">create</a>
+  </div>
+  <div class="grid mt-5 grid-cols-4 gap-10">
+	{% for movie in movies %}
+    {% include "mixins/movie.html" with movie=movie %}
+	{% endfor %}
+  <div class=" rounded shadow-lg p-2">
+	<a class="text-blue-400" href="{% url 'movies:movies' %}">See all movies &rarr;</a>
+  </div>
+  </div>
+</div>
+	<hr />
+
+<div class="my-8 px-5">
+  <div class="flex items-center">
+  <h2 class="text-3xl text-blue-600">Books</h2>
+  <a class="bg-blue-400 hover:bg-blue-600 text-white font-bold ml-2 py-2 px-4 rounded" href="{% url 'books:create' %}">create</a>
+  </div>
+  <div class="grid mt-5 grid-cols-4 gap-10">
+	{% for book in books %}
+    {% include "mixins/book.html" with book=book %}
+	{% endfor %}
+  <div class=" rounded shadow-lg p-2">
+	<a class="text-blue-400" href="{% url 'books:books' %}">See all books &rarr;</a>
+  </div>
+  </div>
+</div>
+	<hr />
+
+<div class="my-8 px-5">
+  <div class="flex items-center">
+	<h2 class="text-3xl text-blue-600">People</h2> 
+  <a class="bg-blue-400 hover:bg-blue-600 text-white font-bold ml-2 py-2 px-4 rounded" href="{% url 'people:create' %}">create</a>
+  </div>
+  <div class="grid grid-cols-4 gap-10">
+	{% for person in people %}
+	  {% include "mixins/person.html" with person=person %}
+	{% endfor %}
+  <div class=" rounded shadow-lg p-2">
+	<a class="text-blue-400" href="{% url 'people:people' %}">See all people &rarr;</a>
+  </div>
+  </div>
+</div>
+	<hr />
+{% endblock content %}

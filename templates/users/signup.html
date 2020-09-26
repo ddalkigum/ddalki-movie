@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+  Sign Up
+{% endblock page_title %}
+
+{% block content %}
+    {% include 'mixins/form.html' with form=form cta="Sign Up" %}
+{% endblock content %}

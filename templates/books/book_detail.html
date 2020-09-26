@@ -1,0 +1,58 @@
+{% extends "base.html" %} {% block page_title %} {{book.title}} {% endblock
+page_title %} {% block content %}
+
+<div
+  class="flex flex-col items-center bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+>
+  <h2 class="font-bold">{{book.title}}</h2>
+  <div class="flex items-center my-2">
+    <div
+      class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700"
+    >
+      {{book.year}}
+    </div>
+    <div class="bg-orange-400 text-white px-3 shadow-md py-1 rounded-full mx-4">
+      {{book.category}}
+    </div>
+    <div class="text-red-600">♥︎{{book.rating}}</div>
+  </div>
+  <div class="my-2">
+    Writer:
+    <div
+      class="inline-block bg-white shadow-md rounded-full px-3 py-1 text-sm font-semibold text-gray-700"
+    >
+      {{book.writer}}
+    </div>
+  </div>
+  <div class="flex">
+    <a
+      class="bg-blue-400 hover:bg-blue-600 text-white font-bold mt-4 py-2 px-4 rounded"
+      href="{% url 'books:update' book.pk %}"
+      >Edit Book</a
+    >
+    {% if user.is_authenticated %} {% include "mixins/fav_button.html" with
+    obj=book kind='book' %}
+    <a
+      class="bg-blue-400 hover:bg-blue-600 text-white font-bold mt-4 py-2 px-4 rounded"
+      href="{% url 'books:review' book.pk %}"
+      >Review</a
+    >
+    {% endif %}
+  </div>
+  <div class="w-full">
+    <div class="flex justify-between flex-col">
+      {% for review in book.reviews.all %}
+      <div class="flex w-48 justify-between">
+        <p class="mr-4">{{review.created_by}}</p>
+        <p>❤{{review.rating}}</p>
+      </div>
+      <div class="flex border h-24 my-3">
+        <p class="w-24 text-center pt-8 font-semibold">Review</p>
+        <p class="p-4 text-sm">{{review.text}}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

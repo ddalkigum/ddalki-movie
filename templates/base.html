@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+	<style>
+		input, select {
+			width: 100%;
+			padding-left: 0.75rem;
+			padding-right: 0.75rem;
+			padding-top: 0.5rem;
+			padding-bottom: 0.5rem;
+    }
+	</style>
+	<title>{% block page_title %}{% endblock page_title %} | Nomad Media</title>
+</head>
+
+<body>
+	{% include 'partials/header.html' %} {% block content %} {% endblock content %} {% include 'partials/footer.html' %}
+</body>
+
+</html>

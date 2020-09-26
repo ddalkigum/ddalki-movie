@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+  Search
+{% endblock page_title %}
+
+
+{% block content %}
+
+<div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+
+<form class="flex mb-2" method="GET"> 
+  <input name="term" class="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Search Movie, Book or Person" />
+  <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white ml-2 py-2 px-4 border border-blue-500 hover:border-transparent rounded">Search</button>
+</form>
+
+
+<h3 class="block text-gray-700 text-center text-sm font-bold mb-5 mt-10">
+  {% if term %}
+    Searching by: {{term}}
+  {% else %}
+    Categories
+  {% endif %}
+</h3>
+{% if not term %}
+  <div class="inline-block relative w-full flex flex-wrap">
+    {% for category in categories %}
+      <div class="bg-orange-400 text-white px-5 shadow-md py-2 rounded-full mb-2 mr-2">
+        <a href="{% url 'categories:category' category.pk %}">{{category.name}}</a>
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
+<hr />
+{% if term %}
+<div class="mt-10">
+    <h3 class="block text-gray-700 text-lg font-bold mb-10 mt-10">
+      {% if not movies %}
+        No Movies Found
+      {% else %}
+        Movies:
+      {% endif %}
+    </h3>
+    <div class="grid my-5 grid-cols-4 gap-10">
+      {% for movie in movies %}
+        {% include "mixins/movie.html" with movie=movie %}
+      {% endfor %}
+      </div>
+    <hr />
+</div>
+<div class="mt-10">
+    <h3 class="block text-gray-700 text-lg font-bold mb-10 mt-10">
+      {% if not books %}
+        No Books Found
+      {% else %}
+        Books
+      {% endif %}
+    </h3>
+    <div class="grid my-5 grid-cols-4 gap-10">
+    {% for book in books %}
+      {% include "mixins/book.html" with book=book %}
+    {% endfor %}
+    </div>
+    <hr />
+</div>
+<div class="mt-10">
+    <h3 class="block text-gray-700 text-lg font-bold mb-10 mt-10">
+      {% if not people %}
+        No People Found
+      {% else %}
+        People
+      {% endif %}
+    </h3>
+    <hr />
+     <div class="grid my-5 grid-cols-4 gap-10">
+      {% for person in people %}
+        {% include "mixins/person.html" with person=person %}
+      {% endfor %}
+      </div>
+</div>
+{% endif %}
+</div>
+
+{% endblock content %}

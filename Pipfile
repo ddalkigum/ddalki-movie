@@ -8,7 +8,6 @@ black = "*"
 flake8 = "*"
 django-seed = "*"
 pillow = "*"
-awsebcli = "*"
 pipenv-to-requirements = "*"
 
 [packages]

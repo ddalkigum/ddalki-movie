@@ -5,7 +5,8 @@ awsebcli==3.19.0
 bcrypt==3.2.0
 black==20.8b1
 blessed==1.17.10
-botocore==1.17.63
+boto3==1.15.6
+botocore==1.18.6
 cached-property==1.5.2
 cement==2.8.2
 certifi==2020.6.20
@@ -17,6 +18,7 @@ cryptography==3.1.1
 distlib==0.3.1
 Django==3.1.1
 django-seed==0.2.2
+django-storages==1.10.1
 docker==4.3.1
 docker-compose==1.25.5
 dockerpty==0.4.1
@@ -43,14 +45,15 @@ pycparser==2.20
 pyflakes==2.2.0
 PyNaCl==1.4.0
 pyrsistent==0.17.3
-python-dateutil==2.8.0
+python-dateutil==2.8.1
 pytz==2020.1
 PyYAML==5.3.1
 regex==2020.7.14
 requests==2.20.1
+s3transfer==0.3.3
 semantic-version==2.5.0
 sentry-sdk==0.17.8
-six==1.11.0
+six==1.15.0
 sqlparse==0.3.1
 termcolor==1.1.0
 text-unidecode==1.3
@@ -58,7 +61,7 @@ texttable==1.6.3
 toml==0.10.1
 typed-ast==1.4.1
 typing-extensions==3.7.4.3
-urllib3==1.24.3
+urllib3==1.25.10
 virtualenv==20.0.31
 virtualenv-clone==0.5.4
 wcwidth==0.1.9
